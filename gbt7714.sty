@@ -47,14 +47,14 @@
 \newcommand\gbtbibstyle[1]{%
   \ifstrequal{#1}{numerical}{%
     \if@gbt@mmxv
-      \bibliographystyle{gbt7714-unsrt}%
+      \bibliographystyle{ustcthesis-numerical}%
     \else
       \bibliographystyle{gbt7714-2005-unsrt}%
     \fi
   }{%
     \ifstrequal{#1}{authoryear}{%
       \if@gbt@mmxv
-        \bibliographystyle{gbt7714-plain}%
+        \bibliographystyle{ustcthesis-authoryear}%
       \else
         \bibliographystyle{gbt7714-2005-plain}%
       \fi

@@ -44,10 +44,9 @@ version 2005/12/01 or later.
 \nopostamble
 \generate{
   \file{\jobname.sty}{\from{\jobname.dtx}{package}}
-  \file{\jobname-plain.bst}{\from{\jobname.dtx}{2015,authoryear}}
-  \file{\jobname-unsrt.bst}{\from{\jobname.dtx}{2015,numerical}}
-  \file{\jobname-2005-plain.bst}{\from{\jobname.dtx}{2005,authoryear}}
-  \file{\jobname-2005-unsrt.bst}{\from{\jobname.dtx}{2005,numerical}}
+  \file{ustcthesis-authoryear.bst}{\from{\jobname.dtx}{2015,authoryear}}
+  \file{ustcthesis-numerical.bst}{\from{\jobname.dtx}{2015,numerical}}
+  \file{ustcthesis-bachelor.bst}{\from{\jobname.dtx}{2015,bachelor,numerical}}
 }
 \endbatchfile
 %</install>
@@ -512,14 +511,14 @@ version 2005/12/01 or later.
 \newcommand\gbtbibstyle[1]{%
   \ifstrequal{#1}{numerical}{%
     \if@gbt@mmxv
-      \bibliographystyle{gbt7714-unsrt}%
+      \bibliographystyle{ustcthesis-numerical}%
     \else
       \bibliographystyle{gbt7714-2005-unsrt}%
     \fi
   }{%
     \ifstrequal{#1}{authoryear}{%
       \if@gbt@mmxv
-        \bibliographystyle{gbt7714-plain}%
+        \bibliographystyle{ustcthesis-authoryear}%
       \else
         \bibliographystyle{gbt7714-2005-plain}%
       \fi
@@ -679,7 +678,12 @@ FUNCTION {load.config}
 %
 % 英文姓名转为全大写：
 %    \begin{macrocode}
+%<*!bachelor>
   #1 'uppercase.name :=
+%</!bachelor>
+%<*bachelor>
+  #0 'uppercase.name :=
+%</bachelor>
 %    \end{macrocode}
 %
 % 最多显示的作者数量：
@@ -690,7 +694,7 @@ FUNCTION {load.config}
 % 采用著者-出版年制时，作者姓名与年份之间使用句点连接：
 %    \begin{macrocode}
 %<*2015>
-  #0 'period.between.author.year :=
+  #1 'period.between.author.year :=
 %</2015>
 %<*2005>
   #1 'period.between.author.year :=
@@ -709,7 +713,12 @@ FUNCTION {load.config}
 %
 % 著录文献类型标识（比如“[M/OL]“）：
 %    \begin{macrocode}
+%<*!bachelor>
   #1 'show.mark :=
+%</!bachelor>
+%<*bachelor>
+  #0 'show.mark :=
+%</bachelor>
 %    \end{macrocode}
 %
 % 使用“//”表示析出文献
@@ -724,7 +733,12 @@ FUNCTION {load.config}
 %
 % 期刊名使用斜体：
 %    \begin{macrocode}
+%<*!bachelor>
   #0 'italic.jounal :=
+%</!bachelor>
+%<*bachelor>
+  #1 'italic.jounal :=
+%</bachelor>
 %    \end{macrocode}
 %
 % 期刊的卷使用粗体：
@@ -734,7 +748,7 @@ FUNCTION {load.config}
 %
 % 无出版地或出版者时，著录“出版地不详”，“出版者不详”，“S.l.” 或 “s.n.”：
 %    \begin{macrocode}
-  #1 'show.missing.address.publisher :=
+  #0 'show.missing.address.publisher :=
 %    \end{macrocode}
 %
 % 是否著录 URL：
@@ -1971,9 +1985,17 @@ FUNCTION {format.series.vol.num.booktitle}
   if$
 }
 
+%    \end{macrocode}
+%
+% USTC requires italic titles for journals in foriegn languages.
+%
+%    \begin{macrocode}
 FUNCTION {format.journal}
 { journal
   italic.jounal
+%<*bachelor>
+  lang.zh entry.lang = not and
+%</bachelor>
     'italicize
     'skip$
   if$
