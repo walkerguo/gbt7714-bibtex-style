@@ -49,14 +49,14 @@
     \if@gbt@mmxv
       \bibliographystyle{gbt7714-unsrt}%
     \else
-      \bibliographystyle{gbt7714-2005-unsrt}%
+      \bibliographystyle{thuthesis-numeric}%
     \fi
   }{%
     \ifstrequal{#1}{authoryear}{%
       \if@gbt@mmxv
         \bibliographystyle{gbt7714-plain}%
       \else
-        \bibliographystyle{gbt7714-2005-plain}%
+        \bibliographystyle{thuthesis-author-year}%
       \fi
     }{%
       \PackageError{gbt7714}{Unknown argument #1.}%

@@ -3,8 +3,10 @@
 \usepackage[colorlinks=true,allcolors=blue]{hyperref}
 \hypersetup{bookmarksnumbered=true,bookmarksopen=true,bookmarksopenlevel=2}
 \ctexset{chapter={name={},number=\arabic{chapter}}}
-\usepackage[numbers,sectionbib]{gbt7714}
+\usepackage[numbers,2005,sectionbib]{gbt7714}
 \usepackage[sectionbib]{chapterbib}
+
+\def\thuthesis{\textsc{Thu}\-\textsc{Thesis}}
 
 \begin{document}
 
@@ -16,6 +18,10 @@
 \tableofcontents
 
 \include{intro}
+
+\include{tsinghua-numerical}
+\include{tsinghua-authoryear}
+\include{tsinghua-bachelor}
 
 \include{entry-monograph}
 \include{entry-incollection}

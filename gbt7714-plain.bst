@@ -40,7 +40,7 @@ INTEGERS {
 
 FUNCTION {load.config}
 {
-  #1 'uppercase.name :=
+  #0 'uppercase.name :=
   #3 'max.num.authors :=
   #0 'period.between.author.year :=
   #1 'sentence.case.title :=
@@ -259,7 +259,13 @@ FUNCTION {output.check}
 }
 
 FUNCTION {fin.entry}
-{ add.period$
+{ type$ "book" =
+  type$ "inbook" = or
+  type$ "incollection" = or
+  type$ "collection" = or
+    'skip$
+    'add.period$
+  if$
   write$
   newline$
 }
@@ -1521,7 +1527,11 @@ FUNCTION {map}
 FUNCTION {manual} { monograph }
 
 FUNCTION {mastersthesis}
-{ "D" set.entry.mark
+{ lang.zh entry.lang =
+    { "硕士学位论文" }
+    { "D" }
+  if$
+  set.entry.mark
   monograph
 }
 
@@ -1535,7 +1545,14 @@ FUNCTION {online}
   electronic
 }
 
-FUNCTION {phdthesis} { mastersthesis }
+FUNCTION {phdthesis}
+{ lang.zh entry.lang =
+    { "博士学位论文" }
+    { "D" }
+  if$
+  set.entry.mark
+  monograph
+}
 
 FUNCTION {proceedings}
 { "C" set.entry.mark

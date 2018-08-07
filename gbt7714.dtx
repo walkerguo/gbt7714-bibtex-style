@@ -46,8 +46,9 @@ version 2005/12/01 or later.
   \file{\jobname.sty}{\from{\jobname.dtx}{package}}
   \file{\jobname-plain.bst}{\from{\jobname.dtx}{2015,authoryear}}
   \file{\jobname-unsrt.bst}{\from{\jobname.dtx}{2015,numerical}}
-  \file{\jobname-2005-plain.bst}{\from{\jobname.dtx}{2005,authoryear}}
-  \file{\jobname-2005-unsrt.bst}{\from{\jobname.dtx}{2005,numerical}}
+  \file{thuthesis-author-year.bst}{\from{\jobname.dtx}{2005,authoryear}}
+  \file{thuthesis-numeric.bst}{\from{\jobname.dtx}{2005,numerical}}
+  \file{thuthesis-bachelor.bst}{\from{\jobname.dtx}{2015,numerical,bachelor}}
 }
 \endbatchfile
 %</install>
@@ -514,14 +515,14 @@ version 2005/12/01 or later.
     \if@gbt@mmxv
       \bibliographystyle{gbt7714-unsrt}%
     \else
-      \bibliographystyle{gbt7714-2005-unsrt}%
+      \bibliographystyle{thuthesis-numeric}%
     \fi
   }{%
     \ifstrequal{#1}{authoryear}{%
       \if@gbt@mmxv
         \bibliographystyle{gbt7714-plain}%
       \else
-        \bibliographystyle{gbt7714-2005-plain}%
+        \bibliographystyle{thuthesis-author-year}%
       \fi
     }{%
       \PackageError{gbt7714}{Unknown argument #1.}%
@@ -679,7 +680,12 @@ FUNCTION {load.config}
 %
 % 英文姓名转为全大写：
 %    \begin{macrocode}
+%<*bachelor>
   #1 'uppercase.name :=
+%</bachelor>
+%<*!bachelor>
+  #0 'uppercase.name :=
+%</!bachelor>
 %    \end{macrocode}
 %
 % 最多显示的作者数量：
@@ -1159,9 +1165,22 @@ FUNCTION {output.check}
 %    \end{macrocode}
 %
 % This function finishes all entries.
+%
+% Tsinghua requires no period at the end of book-like entries.
 %    \begin{macrocode}
 FUNCTION {fin.entry}
+%<*bachelor>
 { add.period$
+%</bachelor>
+%<*!bachelor>
+{ type$ "book" =
+  type$ "inbook" = or
+  type$ "incollection" = or
+  type$ "collection" = or
+    'skip$
+    'add.period$
+  if$
+%</!bachelor>
   write$
   newline$
 }
@@ -2941,9 +2960,20 @@ FUNCTION {manual} { monograph }
 %       Required: author, title, school, year
 %
 %       Optional: type, address, month, note
+%
+% Tsinghua requires a special mark for entry type.
 %    \begin{macrocode}
 FUNCTION {mastersthesis}
+%<*bachelor>
 { "D" set.entry.mark
+%</bachelor>
+%<*!bachelor>
+{ lang.zh entry.lang =
+    { "硕士学位论文" }
+    { "D" }
+  if$
+  set.entry.mark
+%</!bachelor>
   monograph
 }
 
@@ -2965,7 +2995,19 @@ FUNCTION {online}
 %
 %       Optional: type, address, month, note
 %    \begin{macrocode}
-FUNCTION {phdthesis} { mastersthesis }
+FUNCTION {phdthesis}
+%<*bachelor>
+{ "D" set.entry.mark
+%</bachelor>
+%<*!bachelor>
+{ lang.zh entry.lang =
+    { "博士学位论文" }
+    { "D" }
+  if$
+  set.entry.mark
+%</!bachelor>
+  monograph
+}
 
 %    \end{macrocode}
 %

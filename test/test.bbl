@@ -7,7 +7,7 @@
 \providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 
 \bibitem[{Author(2014)}]{Gu2014Weighted}
-AUTHOR.
+Author.
 \newblock Title\allowbreak[C]//\allowbreak
 Series: Booktitle.
 \newblock Address: Publisher, 2014: 2862-2869.

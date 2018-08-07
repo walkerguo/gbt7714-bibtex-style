@@ -1,10 +1,10 @@
 %%
-%% This is file `gbt7714-unsrt.bst',
+%% This is file `thuthesis-bachelor.bst',
 %% generated with the docstrip utility.
 %%
 %% The original source files were:
 %%
-%% gbt7714.dtx  (with options: `2015,numerical')
+%% gbt7714.dtx  (with options: `2015,numerical,bachelor')
 %% -------------------------------------------------------------------
 %% GB/T 7714-2015 BibTeX Style
 %% https://github.com/CTeX-org/gbt7714-bibtex-style
@@ -40,7 +40,7 @@ INTEGERS {
 
 FUNCTION {load.config}
 {
-  #0 'uppercase.name :=
+  #1 'uppercase.name :=
   #3 'max.num.authors :=
   #0 'period.between.author.year :=
   #1 'sentence.case.title :=
@@ -259,13 +259,7 @@ FUNCTION {output.check}
 }
 
 FUNCTION {fin.entry}
-{ type$ "book" =
-  type$ "inbook" = or
-  type$ "incollection" = or
-  type$ "collection" = or
-    'skip$
-    'add.period$
-  if$
+{ add.period$
   write$
   newline$
 }
@@ -1505,11 +1499,7 @@ FUNCTION {map}
 FUNCTION {manual} { monograph }
 
 FUNCTION {mastersthesis}
-{ lang.zh entry.lang =
-    { "硕士学位论文" }
-    { "D" }
-  if$
-  set.entry.mark
+{ "D" set.entry.mark
   monograph
 }
 
@@ -1524,11 +1514,7 @@ FUNCTION {online}
 }
 
 FUNCTION {phdthesis}
-{ lang.zh entry.lang =
-    { "博士学位论文" }
-    { "D" }
-  if$
-  set.entry.mark
+{ "D" set.entry.mark
   monograph
 }
 

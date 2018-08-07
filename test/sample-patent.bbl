@@ -3,8 +3,6 @@
 \providecommand{\url}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
-\providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 
 \bibitem[{张凯军(2012)}]{zkj}
 张凯军.
@@ -21,7 +19,7 @@
   \url{http://211.152.9.47/sipoasp/zlijs/hyjs-yx-new.asp?recid=01129210.5&leixin=0}.
 
 \bibitem[{Koseki et~al.(2002)Koseki, Momose, Kawahito, et~al.}]{koseki}
-KOSEKI~A, MOMOSE~H, KAWAHITO~M, et~al.
+Koseki~A, Momose~H, Kawahito~M, et~al.
 \newblock Compiler: US828402\allowbreak[P/OL].
 \newblock 2002-05-25\allowbreak[2002-05-28].
 \newblock

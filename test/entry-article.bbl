@@ -3,8 +3,6 @@
 \providecommand{\url}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
-\providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 
 \bibitem[{袁训来\ 等(2012)袁训来, 陈哲, 肖书海, et~al.}]{yxl}
 袁训来, 陈哲, 肖书海, 等.
@@ -40,34 +38,31 @@
 \newblock 测绘科学, 2008, 33\penalty0 (5):\penalty0
   8-9\allowbreak[2009-10-25].
 \newblock \url{http://vip.calis.edu.cn/CSTJ/Sear.dll?OPAC_CreateDetail}.
-\newblock DOI: \doi{10.3771/j.issn.1009-2307.2008.05.002}.
 
 \bibitem[{Kanamori(1998)}]{kanamori}
-KANAMORI~H.
+Kanamori~H.
 \newblock Shaking without quaking\allowbreak[J].
 \newblock Science, 1998, 279\penalty0 (5359):\penalty0 2063.
 
 \bibitem[{Caplan(1993)}]{caplan}
-CAPLAN~P.
+Caplan~P.
 \newblock Cataloging internet resources\allowbreak[J].
 \newblock The public access computer systems review, 1993, 4\penalty0
   (2):\penalty0 61-66.
 
 \bibitem[{Frese et~al.(2013)Frese, Katus, and Meder}]{frese}
-FRESE~K~S, KATUS~H~A, MEDER~B.
+Frese~K~S, Katus~H~A, Meder~B.
 \newblock Next-generation sequencing: from understanding biology to
   personalized medicine\allowbreak[J/OL].
 \newblock Biology, 2013, 2\penalty0 (1):\penalty0
   378-398\allowbreak[2013-03-19].
 \newblock \url{http://www.mdpi.com/2079-7737/2/1/378}.
-\newblock DOI: \doi{10.3390/biology2010378}.
 
 \bibitem[{Myburg et~al.(2014)Myburg, Grattapaglia, Tuskan, et~al.}]{myburg}
-MYBURG~A~A, GRATTAPAGLIA~D, TUSKAN~G~A, et~al.
+Myburg~A~A, Grattapaglia~D, Tuskan~G~A, et~al.
 \newblock The genome of eucalyptus grandis\allowbreak[J/OL].
 \newblock Nature, 2014, 510:\penalty0 356-362\allowbreak[2014-06-25].
 \newblock
   \url{http://www.nature.com/nature/journal/v510/n7505/pdf/nature13308.pdf}.
-\newblock DOI: \doi{10.1038/nature13308}.
 
 \end{thebibliography}

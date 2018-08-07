@@ -3,8 +3,6 @@
 \providecommand{\url}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
-\providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 
 \bibitem[{全国信息与文献标准化技术委员会(2010)}]{qgxxywxbzhjswyh2}
 全国信息与文献标准化技术委员会.

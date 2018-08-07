@@ -3,8 +3,6 @@
 \providecommand{\url}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
   \urlstyle{same}\fi
-\providecommand{\href}[2]{\url{#2}}
-\providecommand{\doi}[1]{\href{https://doi.org/#1}{#1}}
 
 \bibitem[{中华人民共和国国务院新闻办公室(2013)}]{zhrmghggwyxwbgs}
 中华人民共和国国务院新闻办公室.
@@ -21,7 +19,7 @@
 \newblock \url{http://www.nstrs.org.cn/xiangxiBG.aspx?id=41707}.
 
 \bibitem[{Calkin et~al.(2011)Calkin, Ager, and Thompson}]{calkin}
-CALKIN~D, AGER~A, THOMPSON~M.
+Calkin~D, Ager~A, Thompson~M.
 \newblock A comparative risk assessment framework for wildland fire management:
   the 2010 cohesive strategy science report: RMRS-GTR-262\allowbreak[R].
 \newblock [S.l.: s.n.], 2011: 8-9.
